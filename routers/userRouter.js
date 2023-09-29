@@ -3,6 +3,8 @@ const authorize = require("../middlewares/authorize");
 const {
     signUp,
     signIn,
+    signInFailed,
+    signInSuccessful,
     getUserHistory,
 } = require("../controllers/userController");
 

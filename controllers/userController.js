@@ -42,13 +42,13 @@ module.exports.signIn = async (req, res) => {
     });
 };
 
+
+
 //* -------------- User Purchase History -------------------
 module.exports.getUserHistory = async (req, res) => {
     try {
         const user = req.user._id;
-
         const orders = await Order.find({ user: user });
-
         return res.status(200).send(orders);
     } catch (err) {
         console.log(err);
