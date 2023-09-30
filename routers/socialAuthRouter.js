@@ -1,6 +1,9 @@
 const router = require("express").Router();
 const passport = require("passport");
 require("../config/authGoogle");
+require("../config/authFaceBook");
+
+//todo ------------ Google Authentication ---------------
 
 // router.get("/login/success", (req, res) => {
 //     console.log("This is successful login => ", req.user);
@@ -27,6 +30,7 @@ router
     .get(passport.authenticate("google", { scope: ["profile", "email"] }));
 
 //* http://localhost:3001/auth/google/redirect
+
 const CLIENT_URL = "http://localhost:3000/login";
 
 router.route("/google/redirect").get(
@@ -37,6 +41,25 @@ router.route("/google/redirect").get(
     }),
     (req, res) => {
         console.log("The user => ", req.user);
+        const token = req.user.token;
+        res.redirect(`${CLIENT_URL}?token=${token}`);
+    }
+);
+
+//todo ------------ FaceBook Authentication ---------------
+//* http://localhost:3001/auth/facebook
+router
+    .route("/facebook")
+    .get(passport.authenticate("facebook"));
+
+//* http://localhost:3001/auth/facebook/redirect
+router.route("/facebook/redirect").get(
+    passport.authenticate("facebook", {
+        session: false,
+        failureRedirect: "/login/failed",
+    }),
+    (req, res) => {
+        console.log("The facebook user: ", req.user);
         const token = req.user.token;
         res.redirect(`${CLIENT_URL}?token=${token}`);
     }

@@ -27,6 +27,7 @@
         "node-fetch": "^2.6.6",
         "node-fetch-commonjs": "^3.3.2",
         "passport": "^0.6.0",
+        "passport-facebook": "^3.0.0",
         "passport-google-oauth20": "^2.0.0",
         "ssl-commerz-node": "^1.0.4"
     },
