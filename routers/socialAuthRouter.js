@@ -47,10 +47,10 @@ router.route("/google/redirect").get(
 );
 
 //todo ------------ FaceBook Authentication ---------------
-//* http://localhost:3001/auth/facebook
+//* https://bohubrihi-e-com-backend-app-2.onrender.com/auth/facebook
 router.route("/facebook").get(passport.authenticate("facebook"));
 
-//* http://localhost:3001/auth/facebook/redirect
+//* https://bohubrihi-e-com-backend-app-2.onrender.com/auth/facebook/redirect
 router.route("/facebook/redirect").get(
     passport.authenticate("facebook", {
         session: false,
