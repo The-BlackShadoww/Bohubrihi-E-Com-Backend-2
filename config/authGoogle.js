@@ -7,7 +7,9 @@ const strategy = new GoogleStrategy(
     {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "http://localhost:3001/auth/google/redirect",
+        // callbackURL: "http://localhost:3001/auth/google/redirect",
+        callbackURL:
+            "https://bohubrihi-e-com-backend-app-2.onrender.com/auth/google/redirect",
     },
     async (accessToken, refreshToken, profile, cb) => {
         console.log("This is the user profile => ", profile);

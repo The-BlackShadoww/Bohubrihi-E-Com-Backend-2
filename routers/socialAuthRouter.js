@@ -24,9 +24,9 @@ router.get("/login/failed", (req, res) => {
     });
 });
 
-//* http://localhost:3001/auth/google
+
 router
-    .route("/google")
+    .route("/google") //* http://localhost:3001/auth/google
     .get(passport.authenticate("google", { scope: ["profile", "email"] }));
 
 //* http://localhost:3001/auth/google/redirect
